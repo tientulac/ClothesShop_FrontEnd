@@ -1,0 +1,62 @@
+<div class="content">
+    <div class="panel-header bg-primary-gradient">
+        <div class="page-inner py-5">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                <div>
+                    <h2 class="text-white pb-2 fw-bold">Order</h2>
+                    <h5 class="text-white op-7 mb-2">Home/Admin/Order</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-inner mt--5">
+        <div class="row mt--2">
+            <div class="col-md-12">
+                <div class="card full-height">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive table-hover table-sales">
+                                    <nz-table #basicTable [nzData]="listOrder">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th>Status</th>
+                                                <th>Type Payment</th>
+                                                <th>Time Delivery</th>
+                                                <th>Created At</th>
+                                                <th>Account</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of basicTable.data">
+                                                <td>{{ data.order_id }}</td>
+                                                <td>{{ data.address_from }}</td>
+                                                <td>{{ data.address_to }}</td>
+                                                <td [style]="data.status == 1 ? 'font-weight: bold; color: green' : 'font-weight: bold;color:red'">{{data.status == 1 ? 'Open' : 'Cancle'}}</td>
+                                                <td [style]="data.type_payment == 1 ? 'font-weight: bold; color: green' : 'font-weight: bold;color:yellow'">{{data.status == 1 ? 'Card' : 'Money'}}</td>
+                                                <td>{{ data.time_delivery }}</td>
+                                                <td>{{ data.created_at }}</td>
+                                                <td>{{ data.user_name }}</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-danger" placement="left"
+                                                        style="margin-right: 0.1rem;" nzType="dashed" (click)="showConfirm(data.order_id)">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </nz-table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
