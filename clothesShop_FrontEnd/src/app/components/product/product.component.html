@@ -31,6 +31,7 @@
                                                 <th>Brand</th>
                                                 <th>Name</th>
                                                 <th>Gender</th>
+                                                <th>Size</th>
                                                 <th>Origin</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
@@ -46,6 +47,7 @@
                                                 <td>{{ data.product_name }}</td>
                                                 <td>{{ data.gender == 1 ? 'Female' : data.gender == 2 ? 'Male' :
                                                     'Both'}}</td>
+                                                <td>{{ data.size }}</td>
                                                 <td>{{ data.origin }}</td>
                                                 <td>{{ data.price | number }}</td>
                                                 <td
@@ -75,7 +77,7 @@
                                                     <button class="btn btn-sm btn-outline-success" placement="left"
                                                         style="margin-right: 0.5rem;" nzType="dashed"
                                                         (click)="showColorModal(data.product_id)">
-                                                        <i class="fa fa-palette"></i> 
+                                                        <i class="fa fa-palette"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -126,6 +128,11 @@
                 <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select cate" formControlName="gender">
                     <nz-option *ngFor="let c of checkboxForm" [nzLabel]="c.name" [nzValue]="c.id">
                         {{c.name}}</nz-option>
+                </nz-select>
+                <label class="col-md-12">Size</label>
+                <nz-select [(ngModel)]="multipleValue" [nzSize]="size" nzMode="multiple" nzPlaceHolder="Select Size"
+                    [ngModelOptions]="{standalone: true}">
+                    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option" [nzValue]="option"></nz-option>
                 </nz-select>
             </div>
         </form>

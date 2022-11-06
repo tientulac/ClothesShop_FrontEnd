@@ -12,6 +12,9 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { BrandService } from 'src/app/services/brand.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
+import { RoleService } from 'src/app/services/role.service';
+import { DiscountService } from 'src/app/services/discount.service';
+import { AccountService } from 'src/app/services/account.service';
 
 const formatDate = (date: string | number | Date) => {
   var d = new Date(date),
@@ -70,6 +73,9 @@ export class BaseComponent {
     public brandService: BrandService,
     public orderService: OrderService,
     public productService: ProductService,
+    public roleService: RoleService,
+    public discountService: DiscountService,
+    public accountService: AccountService
   ) { }
 
   listCate: any = [];
@@ -79,6 +85,9 @@ export class BaseComponent {
   listImage: any = [];
   listDetail: any = [];
   listColor: any = [];
+  listRole: any = [];
+  listDiscount: any = [];
+  listAccount: any = [];
 
   getListCate = () => {
     this.categoryService.getList().subscribe(
@@ -99,7 +108,7 @@ export class BaseComponent {
   getListOrder = () => {
     this.orderService.getList().subscribe(
       (res) => {
-        this.listBrand = res;
+        this.listOrder = res;
       }
     )
   }
@@ -136,6 +145,30 @@ export class BaseComponent {
     )
   };
   
+  getListRole = () => {
+    this.roleService.getList().subscribe(
+      (res) => {
+        this.listRole = res;
+      }
+    )
+  };
+
+  getListDiscount = () => {
+    this.discountService.getList().subscribe(
+      (res) => {
+        this.listDiscount = res;
+      }
+    )
+  };
+
+  getListAccount = () => {
+    this.accountService.getList().subscribe(
+      (res) => {
+        this.listAccount = res;
+      }
+    )
+  };
+
   remove_sign = (str: string) => {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');

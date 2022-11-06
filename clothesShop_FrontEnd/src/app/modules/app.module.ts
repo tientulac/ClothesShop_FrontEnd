@@ -30,6 +30,9 @@ import { ProductComponent } from '../components/product/product.component';
 import { ImageComponent } from '../components/product/image/image.component';
 import { DetailComponent } from '../components/product/detail/detail.component';
 import { ColorComponent } from '../components/product/color/color.component';
+import { RoleComponent } from '../components/role/role.component';
+import { DiscountComponent } from '../components/discount/discount.component';
+import { AccountComponent } from '../components/account/account.component';
 
 registerLocaleData(en);
 
@@ -49,7 +52,10 @@ registerLocaleData(en);
     ProductComponent,
     ImageComponent,
     DetailComponent,
-    ColorComponent
+    ColorComponent,
+    RoleComponent,
+    DiscountComponent,
+    AccountComponent
   ],
   imports: [
     DemoNgZorroAntdModule,

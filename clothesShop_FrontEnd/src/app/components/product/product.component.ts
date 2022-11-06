@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NzSelectSizeType } from 'ng-zorro-antd/select';
 import { BaseComponent } from '../base/base.component';
 
 @Component({
@@ -8,6 +9,10 @@ import { BaseComponent } from '../base/base.component';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent extends BaseComponent implements OnInit {
+
+  listOfOption:any = ['S','M','L','XL','XXL'];
+  size: NzSelectSizeType = 'default';
+  multipleValue = [];
 
   selectedIndex: any;
 
@@ -117,6 +122,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
       product_name: this.AddForm.value.product_name,
       status: this.AddForm.value.status,
       price: this.AddForm.value.price,
+      size: this.multipleValue.toString()
     }
     this.productService.save(req).subscribe(
       (res) => {
@@ -131,6 +137,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
     );
     this.isDisplay = false;
     this.isDisplayImage = false;
+    console.log(this.multipleValue);
   }
 
   onItemChange(value: any){

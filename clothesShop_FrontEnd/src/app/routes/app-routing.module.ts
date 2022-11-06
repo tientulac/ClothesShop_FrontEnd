@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DataTableComponent } from '../commons/data-table/data-table.component';
+import { AccountComponent } from '../components/account/account.component';
 import { BrandComponent } from '../components/brand/brand.component';
 import { CategoryComponent } from '../components/category/category.component';
+import { DiscountComponent } from '../components/discount/discount.component';
 import { OrderComponent } from '../components/order/order.component';
 import { ProductComponent } from '../components/product/product.component';
+import { RoleComponent } from '../components/role/role.component';
 import { LoginComponent } from '../pages/login/login.component';
 import { DashboardComponent } from '../portals/portal-admin/dashboard/dashboard.component';
 import { ManagementPageComponent } from '../portals/portal-admin/management-page/management-page.component';
@@ -54,6 +57,18 @@ const routes: Routes = [
       {
         path: 'product',
         component: ProductComponent, 
+      },
+      {
+        path: 'role',
+        component: RoleComponent, 
+      },
+      {
+        path: 'discount',
+        component: DiscountComponent, 
+      },
+      {
+        path: 'account',
+        component: AccountComponent, 
       },
     ]
   },

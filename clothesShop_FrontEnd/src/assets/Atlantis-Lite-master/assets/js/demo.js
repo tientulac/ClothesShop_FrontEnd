@@ -18,8 +18,8 @@ Circles.create({
 //Notify
 $.notify({
 	icon: 'flaticon-alarm-1',
-	title: 'Atlantis',
-	message: 'HantTech luôn đồng hành cùng bạn !',
+	title: 'Clothes SHOP',
+	message: 'HELLO !',
 },{
 	type: 'secondary',
 	placement: {
